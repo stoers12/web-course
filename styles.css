@@ -1,0 +1,105 @@
+/* Base Resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+/* Main Heading (75% larger than base text) */
+h1 {
+  text-align: center;
+  font-size: 1.75em;
+  margin-bottom: 35px;
+  color: #000000;
+}
+
+/* Custom Section Box inside Grid */
+.section-box {
+  position: relative;
+  background-color: #a5a5a5;
+  border: 1px solid #000000;
+  padding: 45px 15px 15px 15px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+/* Section Title Region (Positioned at Top Right Corner) */
+.title-region {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-left: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  padding: 5px 30px;
+  font-size: 1.25em;
+  font-weight: bold;
+  text-align: center;
+  color: #000000;
+}
+
+/* Unique Colors per Mockup */
+.title-chicken {
+  background-color: #d98282;
+}
+
+.title-beef {
+  background-color: #c0392b;
+  color: #ffffff;
+}
+
+.title-sushi {
+  background-color: #f1c40f;
+}
+
+/* Content Text */
+.content {
+  font-size: 1em;
+  color: #000000;
+  line-height: 1.4;
+}
+
+/* Cursor styles for hover (different cursor for each section to satisfy requirement #2) */
+.section-box:hover { outline: 2px solid rgba(0,0,0,0.12);cursor: pointer; }
+.title-chicken:hover, .title-chicken:focus { cursor: pointer; }
+.title-beef:hover, .title-beef:focus { cursor: crosshair; }
+.title-sushi:hover, .title-sushi:focus { cursor: grab; }
+
+/* Make the whole section clickable by changing cursor on the section itself */
+.section-box:hover { cursor: pointer; }
+.section-box:focus { outline: 3px solid rgba(0,0,0,0.15); }
+
+/* Item list rendered from JSON */
+.list-wrapper { padding: 20px; }
+.list-header { display:flex; align-items:center; gap:16px; margin-bottom:16px; }
+.list-header h2 { margin:0; font-size:1.25em; }
+.back-main, .back-list { background:#222; color:#fff; border:0; padding:8px 12px; border-radius:4px; cursor:pointer; }
+.back-main:hover, .back-list:hover { opacity:0.9; }
+
+.item-list { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:16px; }
+.item-card { background:#f6f6f6; border:1px solid #ccc; padding:14px; border-radius:6px; transition:transform .12s ease, box-shadow .12s ease; }
+.item-card:hover { transform:translateY(-6px); box-shadow:0 8px 18px rgba(0,0,0,0.12); cursor:pointer; }
+.item-card:focus { box-shadow:0 0 0 3px rgba(50,115,220,0.18); }
+.item-card .item-name { margin:0 0 8px 0; font-size:1.05em; }
+.item-card .item-desc { margin:0; color:#333; }
+
+/* Fullscreen detail view */
+.detail-fullscreen { position:fixed; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.7)); display:flex; align-items:center; justify-content:center; z-index:9999; padding:24px; }
+.detail-inner { background:#fff; padding:28px; max-width:900px; width:100%; border-radius:8px; box-shadow:0 12px 30px rgba(0,0,0,0.35); }
+.detail-inner h1 { margin-top:0; font-size:1.4em; }
+.detail-inner p { margin-top:12px; line-height:1.6; }
+
+/* Error message */
+.error-msg { padding:20px; color:#b00020; background:#ffeef0; border:1px solid #ffd6dc; border-radius:6px; }
+
+/* Small screens adjustments */
+@media (max-width: 600px) {
+  h1 { font-size: 1.4em; }
+  .section-box { padding: 30px 12px 12px 12px; }
+  .detail-inner { padding:18px; }
+}
